@@ -1,0 +1,20 @@
+{
+  "routerMap": [
+    {
+      "name": "PurchaseProduct",
+      "pageSourceFile": "src/main/ets/pages/PurchaseProduct.ets",
+      "buildFunction": "PurchaseProductBuilder",
+      "data": {
+        "description" : "this is PurchaseProduct Page"
+      }
+    },
+    {
+      "name": "HealthData",
+      "pageSourceFile": "src/main/ets/pages/HealthData.ets",
+      "buildFunction": "HealthDataBuilder",
+      "data": {
+        "description" : "this is HealthData Page"
+      }
+    }
+  ]
+}
