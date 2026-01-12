@@ -16,7 +16,7 @@ struct HealthData {
   @State stepCountList: StepCountRecord[] = [];
   @State heartRate: number = 0;
   @State stepCount: number = 0;
-  @State isMonitoring: boolean = false;
+  private isMonitoring: boolean = false;
   @State purchaseType: string = 'none';
   private lastHeartRateSave: number = 0;
   private readonly SAVE_INTERVAL: number = 60000;
@@ -85,10 +85,11 @@ struct HealthData {
           Column() {
             Text('Step Count')
               .fontSize(18)
-            Text(this.purchaseType === 'EXTRA' ? `${this.stepCount}` : 'You Need To Buy Extra')
+            Text(this.purchaseType === 'EXTRA' ?
+            this.stepCount.toString() :
+              'You Need To Buy Extra')
               .fontSize(30)
               .fontColor(Color.Red)
-
           }
           .width('100%')
 
@@ -131,6 +132,8 @@ struct HealthData {
                     .backgroundColor('#2A2A2A')
                     .borderRadius(12)
                   }
+                }, (item: HeartRateRecord, index: number) => {
+                  return JSON.stringify(item);
                 })
               }
               .layoutWeight(1)
@@ -179,6 +182,8 @@ struct HealthData {
                     .backgroundColor('#2A2A2A')
                     .borderRadius(12)
                   }
+                }, (item: StepCountRecord, index: number) => {
+                  return JSON.stringify(item)
                 })
               }
               .layoutWeight(1)

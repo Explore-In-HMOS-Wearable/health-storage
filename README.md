@@ -14,6 +14,7 @@ HealthStorage offers a clean, intuitive interface and provides meaningful insigh
   <img src="screenshots/ss4.png" width="24%" >
 </div>
 
+
 # Use Cases
 
 1. Through the Essential or Extra packages, users can unlock premium features such as enhanced tracking, analytics, or expanded historical data.
@@ -83,7 +84,7 @@ HealthStorage offers a clean, intuitive interface and provides meaningful insigh
 # License
 
 **HealthStorageApp** is distributed under the terms of the MIT License
-See the [LICENSE](../../Downloads/LICENSE) for more information.
+See the [LICENSE](LICENSE) for more information.
 
 
 

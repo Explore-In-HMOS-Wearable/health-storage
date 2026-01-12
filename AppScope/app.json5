@@ -1,6 +1,6 @@
 {
   "app": {
-    "bundleName": "com.hmosdemos.healthstorage",
+    "bundleName": "com.hmosdemos.wearable.healthstorage",
     "vendor": "hmosdemos",
     "versionCode": 1000000,
     "versionName": "1.0.0",

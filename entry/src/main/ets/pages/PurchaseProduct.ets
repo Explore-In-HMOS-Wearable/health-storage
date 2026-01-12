@@ -71,6 +71,8 @@ struct PurchaseProduct {
             .height(200)
             .borderRadius(16)
 
+          }, (item: ProductType, index: number) => {
+            return JSON.stringify(item);
           })
         }
         .loop(false)

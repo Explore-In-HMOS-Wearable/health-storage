@@ -4,12 +4,15 @@ import { window } from '@kit.ArkUI';
 
 const domain = 0x0000;
 
-export let globalAbilityContext: common.UIAbilityContext | null = null;
+export class GlobalContext {
+  // Static property replaces the global 'let'
+  static abilityContext: common.UIAbilityContext | null = null;
+}
 
 export default class EntryAbility extends UIAbility {
   public onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
-    globalAbilityContext = this.context;
+    GlobalContext.abilityContext = this.context;
     hilog.info(domain, 'testTag', '%{public}s', 'Ability onCreate');
     if (want.abilityName !== undefined) {
       hilog.info(domain, launchParam.launchReason.toString(), '%{public}s', 'Ability onCreate');
@@ -50,8 +53,8 @@ export default class EntryAbility extends UIAbility {
 }
 
 export function getGlobalContext(): common.UIAbilityContext {
-  if (!globalAbilityContext) {
+  if (!GlobalContext.abilityContext) {
     throw new Error('Global context is not initialized. Make sure EntryAbility is created.');
   }
-  return globalAbilityContext;
+  return GlobalContext.abilityContext;
 }

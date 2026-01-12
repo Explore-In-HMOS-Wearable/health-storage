@@ -10,5 +10,5 @@ export const productTypes: ProductType[] = [
     name: 'EXTRA',
     description: 'Heart Rate and Step Counter',
     price: 19.99
-  },
+  }
 ]

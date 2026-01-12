@@ -4,8 +4,6 @@ import { common } from '@kit.AbilityKit';
 
 import relationalStore from '@ohos.data.relationalStore';
 
-export let rdbStore: relationalStore.RdbStore;
-
 interface StoreConfig {
   name: string;
   securityLevel: relationalStore.SecurityLevel;
@@ -14,6 +12,7 @@ interface StoreConfig {
 
 class HealthDataManager {
 
+  private static rdbStore: relationalStore.RdbStore
   private static instance: HealthDataManager;
 
   public static getInstance(): HealthDataManager {
@@ -59,8 +58,7 @@ class HealthDataManager {
     };
 
     try {
-      rdbStore = await relationalStore.getRdbStore(this.context, config);
-      this.rdbStore = rdbStore;
+      this.rdbStore = await relationalStore.getRdbStore(this.context, config);
       await this.rdbStore.executeSql(this.SQL_CREATE_HEART_RATE_TABLE);
       await this.rdbStore.executeSql(this.SQL_CREATE_STEP_COUNT_TABLE);
     } catch (error) {
@@ -164,6 +162,7 @@ class HealthDataManager {
       resultSet.close();
       return records;
     } catch (error) {
+      console.error('Failed to fetch all step counts:', error);
       return [];
     }
   }
